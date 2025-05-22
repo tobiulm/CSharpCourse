@@ -326,46 +326,46 @@ namespace ConsoleApp
 
             string test = james.FirstName;
 
-            //Person tobi = new Person("Tobi", "Ulm", new DateOnly(1976, 6,5), Gender.Male);
-            //Console.WriteLine(tobi.SayHello());
+            Person tobi = new Person("Tobi", "Ulm", new DateOnly(1976, 6, 5), Gender.Male);
+            Console.WriteLine(tobi.SayHello());
             //Console.WriteLine(james.SayHello());
 
             Console.WriteLine(Person.PrintNumberOfPeople());
 
 
-            Person tobi = new Person() { FirstName = "Tobi", LastName = "Ulm" };
-            Person raphael = new Person("test", "test") { };
+            //Person tobi = new Person() { FirstName = "Tobi", LastName = "Ulm" };
+            //Person raphael = new Person("test", "test") { };
 
 
-            ArrayList list = new ArrayList();
-            list.Add(1);
-            list.Add("Tobi");
-            list.Add(james);
+            //ArrayList list = new ArrayList();
+            //list.Add(1);
+            //list.Add("Tobi");
+            //list.Add(james);
 
-            switch (list[0])
-            {
-                case int i:
-                    Console.WriteLine($"Integer: {i}");
-                    break;
-                case string s:
-                    Console.WriteLine($"String: {s}");
-                    break;
-                case Person p:
-                    Console.WriteLine($"Person: {p.FirstName} {p.LastName}");
-                    break;
-                default:
-                    Console.WriteLine("Unknown type.");
-                    break;
-            }
+            //switch (list[0])
+            //{
+            //    case int i:
+            //        Console.WriteLine($"Integer: {i}");
+            //        break;
+            //    case string s:
+            //        Console.WriteLine($"String: {s}");
+            //        break;
+            //    case Person p:
+            //        Console.WriteLine($"Person: {p.FirstName} {p.LastName}");
+            //        break;
+            //    default:
+            //        Console.WriteLine("Unknown type.");
+            //        break;
+            //}
            
-            List<Person> numbers = new List<Person>();
+            //List<Person> numbers = new List<Person>();
 
-            DemoGenericType<int> myGenericObject = new DemoGenericType<int>();
+            //DemoGenericType<int> myGenericObject = new DemoGenericType<int>();
 
-            Employee emp1 = new Employee();
-            
-            
-                       
+            Employee emp1 = new Employee("John", "Doe", new DateOnly(1971, 8, 30), Gender.Male, "IT", "Developer");
+            Console.WriteLine( emp1.SayHello());
+
+
         }
     }
 }

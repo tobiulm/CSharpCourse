@@ -56,7 +56,7 @@ namespace DemoLibrary
 
 
 
-        public string SayHello()
+        public virtual string SayHello()
         {
             return $"Hello, my name is {LastName}, {FirstName} {LastName}. We have {NumberOfPeople} People running around...";
         }

@@ -30,7 +30,7 @@ namespace DemoLibrary
 
         public Employee(string firstName, string lastName, DateOnly dateOfBirth, Gender gender, string department, string jobTitle):base(firstName, lastName, dateOfBirth, gender)
         {
-            _department = department;
+            Department = department;
             _jobTitle = jobTitle;
             _employeeId = Guid.NewGuid();
         }
@@ -55,6 +55,17 @@ namespace DemoLibrary
                     _salary = 40000;
                     break;
             }
+        }
+
+        public override string SayHello()
+        {
+            System.Text.StringBuilder sb = new System.Text.StringBuilder();
+            sb.AppendLine("###############################################################################################################");
+            sb.AppendLine(base.SayHello());
+            sb.AppendLine($"I work in the {_department} department as {_jobTitle}.");
+            sb.AppendLine($"My employee ID is {_employeeId}.");
+            sb.AppendLine("###############################################################################################################");
+            return sb.ToString();
         }
 
     }
