@@ -326,11 +326,16 @@ namespace ConsoleApp
 
             string test = james.FirstName;
 
-            Person tobi = new Person("Tobi", "Ulm", new DateOnly(1976, 6,5), Gender.Male);
-            Console.WriteLine(tobi.SayHello());
-            Console.WriteLine(james.SayHello());
+            //Person tobi = new Person("Tobi", "Ulm", new DateOnly(1976, 6,5), Gender.Male);
+            //Console.WriteLine(tobi.SayHello());
+            //Console.WriteLine(james.SayHello());
 
             Console.WriteLine(Person.PrintNumberOfPeople());
+
+
+            Person tobi = new Person() { FirstName = "Tobi", LastName = "Ulm" };
+            Person raphael = new Person("test", "test") { };
+
 
             ArrayList list = new ArrayList();
             list.Add(1);
@@ -356,7 +361,10 @@ namespace ConsoleApp
             List<Person> numbers = new List<Person>();
 
             DemoGenericType<int> myGenericObject = new DemoGenericType<int>();
-            myGenericObject.
+
+            Employee emp1 = new Employee();
+            
+            
                        
         }
     }

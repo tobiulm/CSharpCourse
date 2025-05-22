@@ -25,6 +25,9 @@ namespace DemoLibrary
             }
         }
 
+        public int Age { get; set; }
+
+
         public string LastName { get => _lastName.ToUpper(); set => _lastName = value; }
         public DateOnly DateOfBirth { get => _dateOfBirth; set => _dateOfBirth = value; }
         public Gender Gender { get => _gender; set => _gender = value; }
@@ -39,7 +42,7 @@ namespace DemoLibrary
         }
 
         // Constructor
-        public Person(string firstName, string lastName):this()
+        public Person(string firstName, string lastName) : this()
         {
             _firstName = firstName;
             _lastName = lastName;

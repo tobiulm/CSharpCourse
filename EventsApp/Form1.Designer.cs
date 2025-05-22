@@ -34,6 +34,8 @@ namespace EventsApp
             button2 = new Button();
             button3 = new Button();
             label1 = new Label();
+            groupBox1 = new GroupBox();
+            groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // button1
@@ -69,18 +71,28 @@ namespace EventsApp
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(12, 322);
+            label1.Location = new Point(34, 45);
             label1.Name = "label1";
             label1.Size = new Size(55, 23);
             label1.TabIndex = 3;
             label1.Text = "label1";
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(label1);
+            groupBox1.Location = new Point(216, 276);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(143, 60);
+            groupBox1.TabIndex = 4;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "groupBox1";
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(9F, 23F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(509, 519);
-            Controls.Add(label1);
+            Controls.Add(groupBox1);
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
@@ -88,8 +100,9 @@ namespace EventsApp
             Margin = new Padding(4, 5, 4, 5);
             Name = "Form1";
             Text = "Events in .net";
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -98,5 +111,6 @@ namespace EventsApp
         private Button button2;
         private Button button3;
         private Label label1;
+        private GroupBox groupBox1;
     }
 }
