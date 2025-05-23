@@ -91,6 +91,7 @@ namespace EventsApp
             // 
             AutoScaleDimensions = new SizeF(9F, 23F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(128, 128, 255);
             ClientSize = new Size(509, 519);
             Controls.Add(groupBox1);
             Controls.Add(button3);

@@ -5,8 +5,8 @@ namespace DemoLibrary
     {
         private string _firstName;
         internal string _lastName;
-        private DateOnly _dateOfBirth;
-        private Gender _gender;
+        protected DateOnly _dateOfBirth;
+        protected internal Gender _gender;
 
         public static int NumberOfPeople = 0;
         
