@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterfaceLibrary", "Interfa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterfaceApp", "InterfaceApp\InterfaceApp.csproj", "{1A4130AE-D833-43D5-BB0B-7C2F84F38C6C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreadingDemoApp", "ThreadingDemoApp\ThreadingDemoApp.csproj", "{BF3B8420-3D6B-43C7-BF11-6EECF39D567A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{1A4130AE-D833-43D5-BB0B-7C2F84F38C6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1A4130AE-D833-43D5-BB0B-7C2F84F38C6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1A4130AE-D833-43D5-BB0B-7C2F84F38C6C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF3B8420-3D6B-43C7-BF11-6EECF39D567A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF3B8420-3D6B-43C7-BF11-6EECF39D567A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF3B8420-3D6B-43C7-BF11-6EECF39D567A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF3B8420-3D6B-43C7-BF11-6EECF39D567A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
