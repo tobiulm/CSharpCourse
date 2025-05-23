@@ -17,7 +17,7 @@ namespace DemoLibrary
             Age = age;
         }
 
-        public void Anoy() 
+        public void Anoy()
         {
             Console.WriteLine("Let me alone!");
             MakeSound();
@@ -29,7 +29,7 @@ namespace DemoLibrary
 
     public class Elephant : Mammal
     {
-        public Elephant(int age):base(false, age)
+        public Elephant(int age) : base(false, age)
         {
 
         }
@@ -38,12 +38,17 @@ namespace DemoLibrary
         {
             Console.WriteLine("Törööööööö!");
         }
+
+        public void GrabNuts()
+        {
+            Console.WriteLine("I can grab nuts with my trunk!");
+        }
     };
 
 
-    public class  Tiger: Mammal
+    public class Tiger : Mammal
     {
-        public Tiger(int age):base(true, age)
+        public Tiger(int age) : base(true, age)
         {
         }
 
@@ -51,6 +56,11 @@ namespace DemoLibrary
         {
             Console.WriteLine("Grrr!");
         }
-    }   
+        
+        public void Hunt()
+        {
+            Console.WriteLine("I can hunt for food!");
+        }
+    }
 }
 

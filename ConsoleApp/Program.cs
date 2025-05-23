@@ -213,7 +213,7 @@ namespace ConsoleApp
             list.Add(42);
             list.Add(names);
 
-            
+
 
 
         }
@@ -283,16 +283,16 @@ namespace ConsoleApp
             // Step 5 == LAMBDA EXPRESSION
             //IEnumerable<int> evenNumbers = numbers.Where(number => number % 2 == 0);
 
-           // Step 6 == WHERE LINQ
-          var evenNumbers = from number in numbers
-                                          where number % 2 == 0
-                                          select new
-                                          {
-                                            DerWert = number,
-                                            Uhrzeit = DateTime.Now.ToLongTimeString()
-                                          };
+            // Step 6 == WHERE LINQ
+            var evenNumbers = from number in numbers
+                              where number % 2 == 0
+                              select new
+                              {
+                                  DerWert = number,
+                                  Uhrzeit = DateTime.Now.ToLongTimeString()
+                              };
 
-            
+
 
 
 
@@ -357,19 +357,57 @@ namespace ConsoleApp
             //        Console.WriteLine("Unknown type.");
             //        break;
             //}
-           
+
             //List<Person> numbers = new List<Person>();
 
             //DemoGenericType<int> myGenericObject = new DemoGenericType<int>();
 
             Employee emp1 = new Employee("John", "Doe", new DateOnly(1971, 8, 30), Gender.Male, "IT", "Developer");
-            Console.WriteLine( emp1.SayHello());
+            Console.WriteLine(emp1.SayHello());
 
             Elephant benji = new Elephant(20);
-            benji.Anoy();
+            //benji.Anoy();
 
-            Tiger tiger = new Tiger(15);
-            tiger.Anoy();
+            Tiger leo = new Tiger(15);
+            //leo.Anoy();
+
+
+            Mammal[] animals = new Mammal[2];
+            animals[0] = benji;
+            animals[1] = leo;
+
+            foreach (Mammal animal in animals)
+            {
+                PolymorphismDemo(animal);
+            }
+
+        }
+
+        static void PolymorphismDemo(Mammal animal)
+        {
+            animal.Anoy();
+
+            if (animal.GetType().Equals(typeof(Elephant)))
+            {
+                Elephant e = (Elephant)animal;
+                e.GrabNuts();
+            }
+            if (animal.GetType().Equals(typeof(Tiger)))
+            {
+                Tiger t = (Tiger)animal;
+                t.Hunt();
+            }
+
+            switch (animal)
+            {
+                case Elephant e:
+                    e.GrabNuts();
+                    break;
+                case Tiger t:
+                    t.Hunt();
+                    break;
+            }
+
 
         }
     }
