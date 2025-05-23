@@ -1,6 +1,7 @@
 ﻿using InterfaceLibrary;
 namespace DemoLibrary
 {
+    [DeveloperInfo("Tobi Ulm", "tu@tobiasulm.net")]
     public class Person : IPerson
     {
         private string _firstName;

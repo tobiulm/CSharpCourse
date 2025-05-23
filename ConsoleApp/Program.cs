@@ -4,6 +4,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 using DemoLibrary;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 
 namespace ConsoleApp
 {
@@ -92,7 +93,8 @@ namespace ConsoleApp
             //DelegatesDemo();
             //EventDemo();
             //LinqDemo();
-            Oop();
+            //Oop();
+            AttributeDemo();
         }
 
         /// <summary>
@@ -417,6 +419,27 @@ namespace ConsoleApp
             }
 
 
+        }
+
+        static void AttributeDemo()
+        {
+            Person james = new Person("James", "Bond", new DateOnly(1980, 3, 1), Gender.Male);
+
+
+             DeveloperInfoAttribute myDevInfo = (DeveloperInfoAttribute) Attribute.GetCustomAttribute(james.GetType(), typeof(DeveloperInfoAttribute));
+
+
+            if(myDevInfo != null)
+            { 
+                Console.WriteLine("Trusted Code! Continuing execution...");
+                Console.WriteLine($"{myDevInfo.DeveloperName} - {myDevInfo.DeveloperEmail}");
+
+                Console.WriteLine(james.SayHello());
+            }
+            else
+            {
+                Console.WriteLine("Untrusted Code! Stopping execution...");
+            }
         }
     }
 }
