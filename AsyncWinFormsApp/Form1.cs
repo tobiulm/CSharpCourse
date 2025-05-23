@@ -1,3 +1,4 @@
+using System;
 namespace AsyncWinFormsApp
 {
     public partial class Form1 : Form
@@ -9,6 +10,9 @@ namespace AsyncWinFormsApp
 
         private async void button1_Click(object sender, EventArgs e)
         {
+            string fileName = "C:\\Windows\\Media\\notify.wav"; // Path to your sound file
+            InteropHelper.PlaySound(fileName, 1);
+
             await DemoMethodAsync();
             label1.Text = "Task Completed!";
             NormalMethod();
@@ -16,6 +20,9 @@ namespace AsyncWinFormsApp
 
         private async Task DemoMethodAsync()
         {
+            
+
+
             await Task.Delay(10000);
             // Simulate a long-running task
         }
