@@ -362,24 +362,32 @@ namespace ConsoleApp
 
             //DemoGenericType<int> myGenericObject = new DemoGenericType<int>();
 
-            Employee emp1 = new Employee("John", "Doe", new DateOnly(1971, 8, 30), Gender.Male, "IT", "Developer");
-            Console.WriteLine(emp1.SayHello());
+            //Employee emp1 = new Employee("John", "Doe", new DateOnly(1971, 8, 30), Gender.Male, "IT", "Developer");
+            //Console.WriteLine(emp1.SayHello());
 
-            Elephant benji = new Elephant(20);
-            //benji.Anoy();
+            //Elephant benji = new Elephant(20);
+            ////benji.Anoy();
 
-            Tiger leo = new Tiger(15);
-            //leo.Anoy();
+            //Tiger leo = new Tiger(15);
+            ////leo.Anoy();
 
 
-            Mammal[] animals = new Mammal[2];
-            animals[0] = benji;
-            animals[1] = leo;
+            //Mammal[] animals = new Mammal[2];
+            //animals[0] = benji;
+            //animals[1] = leo;
 
-            foreach (Mammal animal in animals)
-            {
-                PolymorphismDemo(animal);
-            }
+            //foreach (Mammal animal in animals)
+            //{
+            //    PolymorphismDemo(animal);
+            //}
+
+
+
+            Customer cust1 = new Customer();
+            cust1.Orders.Add(new Order() { OrderID = 1 });
+            cust1.Orders[0].Products.Add(new Product() { ProductID = 1, Price = 10.0m , Name = "PizzaPizza"});
+
+            cust1.Dispose();
 
         }
 
