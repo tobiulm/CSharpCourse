@@ -57,8 +57,46 @@
             decimal dec2 = 9.9m;
             decimal decResult = dec1 - dec2;
             Console.WriteLine($"Decimal:\tdec1:{dec1} - dec2:{dec2} = {decResult}");
-
-
         }
+
+        /// <summary>
+        /// Demonstriert die Deklaration und Verwendung von Arrays und Listen
+        /// </summary>
+        public static void ArraysUndListen()
+        {
+            Console.WriteLine("Arrays:");
+            // Eindimensionales Array
+            int[] zahlen = new int[3];
+            zahlen[0] = 1;
+            zahlen[1] = 2;
+            zahlen[2] = 3;
+            Console.WriteLine($"zahlen an der Position 1 hat den Wert:\t{zahlen[1]}");
+
+            // Kurzschreibweise => Initialisierungslisten
+            int[] zahlen2 = { 1, 2, 3 };
+            Console.WriteLine($"zahlen2 an der Position 1 hat den Wert:\t{zahlen2[1]}");
+
+            // Mehrdimensionale Arrays
+
+            // Tabelle
+            int[,] tabelle = new int[3, 4];
+            tabelle[0,0] = 1;
+            tabelle[0,1] = 2;
+            tabelle[0,2] = 3;
+
+            tabelle[2, 3] = 12;
+            Console.WriteLine($"tabelle an der Position 2,3 hat den Wert:\t{tabelle[2,3]}. Insgesamt gibt es {tabelle.Length} Speichermöglichkeiten");
+
+            // Würfel
+            int[,,] würfel = new int[4, 5, 3];
+
+            // Listen
+            System.Collections.ArrayList myList = new System.Collections.ArrayList();
+            myList.Add(1);
+            myList.Add("Tobi");
+            myList.Add(zahlen2);
+
+            int value = (int)myList[0];
+         }
     }
 }
