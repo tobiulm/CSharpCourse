@@ -9,8 +9,8 @@ namespace NewElements.CSharpConsoleApp
                 "Hello, World!"
             );
 
-            Class1.PrintTime();
-            
+            // NewElements.DemoLibrary.Class1.PrintTime();
+            Class1.PrintTime();            
         }
     }
 }
