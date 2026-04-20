@@ -1,4 +1,5 @@
-﻿namespace NewElements.CSharpConsoleApp
+﻿using NewElements.DemoLibrary;
+namespace NewElements.CSharpConsoleApp
 {
     internal class Program
     {
@@ -7,9 +8,9 @@
             Console.WriteLine(
                 "Hello, World!"
             );
-            Console.WriteLine(
-                $"Aktuelle Uhrzeit: {DateTime.Now.ToLongTimeString()}"
-            );
+
+            Class1.PrintTime();
+            
         }
     }
 }
