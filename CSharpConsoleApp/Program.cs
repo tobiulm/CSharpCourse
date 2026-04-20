@@ -14,6 +14,9 @@ namespace NewElements.CSharpConsoleApp
             // Verwendung von using ermöglicht eine Kurzschreibweise
             // NewElements.DemoLibrary.Class1.PrintTime();
             Class1.PrintTime();
+
+            // Verwendung von Variablen und Typkonvertierung
+            Class1.VariablenUndTypkonvertierung();
         }
     }
 }
