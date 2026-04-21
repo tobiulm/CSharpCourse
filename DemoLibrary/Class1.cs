@@ -1,4 +1,6 @@
-﻿namespace NewElements.DemoLibrary
+﻿using System.Runtime.InteropServices;
+
+namespace NewElements.DemoLibrary
 {
     /// <summary>
     /// Diese Klasse wurde beim Anlegen des Projektes erzeugt und dient der Schulung zu Testzwecken verschiedener Syntaxelemente
@@ -98,5 +100,118 @@
 
             int value = (int)myList[0];
          }
+
+        /// <summary>
+        /// Demonstriert die Steuerung eines Codes durch Iterationen und Entscheidungen
+        /// </summary>
+        public static void Kontrollstrukturen()
+        {
+            // Entscheidungen
+
+            Console.WriteLine("Entscheidungen:");
+            Console.WriteLine("********************************************************************************");
+            Console.WriteLine("\tif Statement");
+
+            string name;
+            Console.WriteLine("\tBitte geben Sie Ihren Namen ein:");
+            name = Console.ReadLine()!;
+
+            if(name == "Oliver")
+            {
+                Console.WriteLine("Hi Oliver");
+            }
+            else if(name == "Verena")
+            {
+                Console.WriteLine("Servus Verena!");
+            }
+            else
+            {
+                Console.WriteLine("Guten Tag!");
+            }
+
+
+            Console.WriteLine("********************************************************************************");
+            Console.WriteLine("\tswitch Statement (Mehrfachauswahl)");
+            switch (name)
+            {
+                case "Oliver":
+                    Console.WriteLine("Hi Oliver!");
+                    break;
+                case "Verena":
+                    Console.WriteLine("Servus Verena!");
+                    break;
+                case "Janik":
+                    Console.WriteLine("Hey Janik!");
+                    break;
+                case "Fabian":
+                    Console.WriteLine("Hallo Fabian!");
+                    break;
+                case "Enno":
+                    Console.WriteLine("Grüzi Enno!");
+                    break;
+                default:
+                    Console.WriteLine("Einen wunderschönen Tag wünsche ich!");
+                    break;
+            }
+
+            Console.WriteLine("********************************************************************************");
+            Console.WriteLine("Iterationen (Schleifen)");
+
+            string[] namen = { "Verena", "Oliver", "Enno", "Fabian", "Janik", "Tobi" };
+
+            Console.WriteLine("\tfor Schleife:");
+            for(int zähler = 0; zähler < namen.GetUpperBound(0); ++zähler)
+            {
+                Console.WriteLine($"Name an Position: {namen[zähler]} => {zähler}");
+            }
+
+            Console.WriteLine("\tdo-while Schleife [Fußgesteuert]:");
+            int doZähler = 4;
+            do
+            {
+                // ++doZähler;
+                Console.WriteLine($"Name an Position: {namen[doZähler]} => {doZähler}");
+                ++doZähler;
+            } while(doZähler < namen.GetUpperBound(0));
+
+
+            Console.WriteLine("\twhile Schleife [Kopfgesteuert]:");
+            int whileZähler = 0;            
+            while(whileZähler < namen.GetUpperBound(0))
+            {
+                Console.WriteLine($"Name an Position: {namen[whileZähler]} => {whileZähler}");
+                whileZähler++;
+            }
+
+            Console.WriteLine("********************************************************************************");
+            Console.WriteLine("foreach Statement");
+            foreach(string vname in namen)
+            {
+                Console.WriteLine(vname);
+            }
+            // Eigentlicher Code des foreach Statements
+            //for (int zähler = 0; zähler <= namen.GetUpperBound(0); ++zähler)
+            //{
+            //    string vname = namen[zähler];
+            //    Console.WriteLine($"Name an Position: {vname} => {zähler}");
+            //}
+
+            Console.WriteLine("********************************************************************************");
+            Console.WriteLine("Schleifen steuern mit continue und break");
+            int[] zahlen = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+            for(int zähler = 0; zähler <= zahlen.GetUpperBound(0); zähler++)
+            {
+                if(zähler == 5)
+                {
+                    continue;
+                }
+                if (zähler == 8)
+                {
+                    break;
+                }
+                Console.WriteLine($"zähler hat den Wert: {zähler}; \t Eintrag in der Liste: {zahlen[zähler]}");
+               
+            }
+        }
     }
 }

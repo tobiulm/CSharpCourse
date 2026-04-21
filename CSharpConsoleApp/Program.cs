@@ -18,8 +18,11 @@ namespace NewElements.CSharpConsoleApp
             // Verwendung von Variablen und Typkonvertierung
             // Class1.VariablenUndTypkonvertierung();
 
-            //Verwendung von Variablen und Listen
-            Class1.ArraysUndListen();
+            // Verwendung von Variablen und Listen
+            // Class1.ArraysUndListen();
+
+            // Verwendung von Kontrollstrukturen wie if oder Schleifen
+            Class1.Kontrollstrukturen();
         }
     }
 }
