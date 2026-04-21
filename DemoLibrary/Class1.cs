@@ -352,5 +352,26 @@ namespace NewElements.DemoLibrary
             Console.WriteLine($"p2.X={p2.X}; p2.Y={p2.Y}; Vektor.X={p3.X}; Vektor.Y={p3.Y}; => Eregbnis: p4.X={p4.X}; p4.Y={p4.Y}");
 
         }
+
+        /// <summary>
+        /// Beispielmethode für Objekt Orientiertes Programmieren (OOP)
+        /// </summary>
+        public static void OopDemo()
+        {
+            Mitarbeiter emp1;
+            emp1 = new Mitarbeiter(); // Default Constructor = Standardkonstruktor
+            emp1.GeburtsDatum = new DateOnly(1956, 10, 21);
+            emp1.Geschlecht = Geschlecht.Mann;
+            emp1.Abteilung = Abteilungen.Management;
+            emp1.NachName = "Gates";
+            emp1.VorName = "Bill";
+            Console.WriteLine(emp1.StellDichVor());
+            Console.WriteLine($"Gehalt von emp1: {emp1.Gehalt}");
+
+
+            Mitarbeiter emp2 = new Mitarbeiter("James", "Bond", Abteilungen.Produktion, Geschlecht.Mann, new DateOnly(1955, 4, 12));
+            Console.WriteLine(emp2.StellDichVor());
+            Console.WriteLine($"Gehalt von emp2: {emp2.Gehalt}");
+        }
     }
 }

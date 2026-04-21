@@ -84,7 +84,10 @@ namespace NewElements.CSharpConsoleApp
             //Class1.EnumDemo(Wochentage.Samstag);
 
             // Demo für Strukturen
-            Class1.StrukturenDemo();
+            // Class1.StrukturenDemo();
+
+            // Demo für Klassen und OOP
+            Class1.OopDemo();
 
 
         }
