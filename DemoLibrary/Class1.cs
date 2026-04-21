@@ -221,5 +221,92 @@ namespace NewElements.DemoLibrary
         {
             throw new ApplicationException("Dies ist ein Demofehler!");
         }
+
+        /// <summary>
+        /// Einfache Methode die Hallo ausgibt
+        /// </summary>
+        public static void SagHallo()
+        {
+            Console.WriteLine("Hallo!");
+        }
+
+        /// <summary>
+        /// Beispiel für Methodenüberladung der Methode SagHallo
+        /// </summary>
+        /// <param name="name">Der Name der zum Begrüßen verwendet werden soll</param>
+        public static void SagHallo(string name)
+        {
+            Console.WriteLine($"Hallo {name}!");
+        }
+
+        /// <summary>
+        /// Generiert einen String mit der aktuellen Uhrzeit
+        /// </summary>
+        /// <returns>Die aktuelle Uhrzeit</returns>
+        public static string GeneriereUhrzeit()
+        {
+            return DateTime.Now.ToLongTimeString();
+        }
+
+        /// <summary>
+        /// Addiert zwei ganzzahl werte
+        /// </summary>
+        /// <param name="zahl1">Operand 1</param>
+        /// <param name="zahl2">Operand 2</param>
+        /// <returns>Das ergebnis als int</returns>
+        public static int Addiere(int zahl1, int zahl2)
+        {
+            return (zahl1 + zahl2);
+        }
+
+
+        // Rückgabetyp hat keinen Einfluß auf die Methodensignatur
+        //public static void Addiere(int zahl1, int zahl2)
+        //{
+
+        //}
+
+        /// <summary>
+        /// Beispiel für Methodenüberladung der Addiere Methode. Unterschiedliche Methodensignatur!
+        /// </summary>
+        /// <param name="zahl1">1. Operand als float</param>
+        /// <param name="zahl2">2. Operand als int</param>
+        /// <returns>Das ergebnis als float</returns>
+        public static float Addiere(float zahl1, int zahl2)
+        {
+            return zahl1 + zahl2;
+        }
+
+        /// <summary>
+        /// Beispiel für Methodenüberladung der Addiere Methode. Unterschiedliche Methodensignatur!
+        /// </summary>
+        /// <param name="zahl1">Operand 1</param>
+        /// <param name="zahl2">Operand 2</param>
+        /// <returns>Das ergebnis als float</returns>
+        public static float Addiere(int zahl1, float zahl2)
+        {
+            return zahl1 + zahl2;
+        }
+
+        /// <summary>
+        /// Demonstriert die Übergabe von Parametern an Methoden ByValue
+        /// </summary>
+        /// <param name="zahl">Der Übergabeparameter für die Demonstration von ByValue</param>
+        public static void ParamByValue(int zahl)
+        {
+            // zahl = zahl + 1;
+            zahl += 1; // Kurzschreibweise für die zeile davor
+            Console.WriteLine($"Class1.ParamByValue: zahl = {zahl}");
+        }
+
+        /// <summary>
+        /// Demonstriert die Übergabe von Parametern an Methoden ByReference
+        /// </summary>
+        /// <param name="erwin">Der Übergabeparameter für die Demonstration von ByReference</param>
+        public static void ParamByReference(ref int erwin)
+        {
+            erwin += 1;
+            Console.WriteLine($"Class1.ParamByRef: zahl = {erwin}");
+        }
     }
 }

@@ -25,24 +25,55 @@ namespace NewElements.CSharpConsoleApp
             // Class1.Kontrollstrukturen();
 
             // Beispiel für Ausnahmenbehandlung
-            try
-            {
-                Class1.Ausnahmenbehandlung();
-            }
-            catch(FileNotFoundException fex)
-            {
-                Console.WriteLine("Datei konnte nicht gefunden werden. Wählen Sie bitte eine andere Datei zu öffnen aus.....");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                Console.WriteLine("Upps, das hätte nicht passieren dürfen.... ;-)");
-            }
-            finally
-            {
-                Console.WriteLine("Dieser Code wird immer garantiert ausgeführt! Egal ob im try Block eine Exception passiert (=>  catch) oder nicht.");
-            }
-            Console.Write("Dieser Code läuft nach der Exception, oder etwa nicht?");
+            //try
+            //{
+            //    Class1.Ausnahmenbehandlung();
+            //}
+            //catch (FileNotFoundException fex)
+            //{
+            //    Console.WriteLine("Datei konnte nicht gefunden werden. Wählen Sie bitte eine andere Datei zu öffnen aus.....");
+            //}
+            //catch (Exception ex)
+            //{
+            //    Console.WriteLine(ex.Message);
+            //    Console.WriteLine("Upps, das hätte nicht passieren dürfen.... ;-)");
+            //}
+            //finally
+            //{
+            //    Console.WriteLine("Dieser Code wird immer garantiert ausgeführt! Egal ob im try Block eine Exception passiert (=>  catch) oder nicht.");
+            //}
+            //Console.Write("Dieser Code läuft nach der Exception, oder etwa nicht?");
+
+            // Beispiele für Methoden
+            
+            // Beispiel für Subroutine
+            Class1.SagHallo();
+            string uhrzeit = Class1.GeneriereUhrzeit();
+            Console.WriteLine(uhrzeit);
+
+            // Beispiel für Funktion mit Rückgabewert
+            int nummer1 = 21;
+            int nummer2 = 21;
+            int ergebnis = Class1.Addiere(nummer1, nummer2);
+            Console.WriteLine(ergebnis);
+
+
+            // Beispiel für Übergabeparameter als Wert oder Referenz
+            int zahl = 1;
+            Class1.ParamByValue(zahl);
+            Console.WriteLine($"Program.Main: zahl = {zahl}");
+            Class1.ParamByReference(ref zahl);
+            Console.WriteLine($"Program.Main: zahl = {zahl}");
+
+            // Beispiele für Methodenüberladung
+            Class1.SagHallo("James");
+
+            float ergebnis1 = Class1.Addiere(1, 2.34f);
+            Console.WriteLine(ergebnis1);
+
+            float ergebnis2 =  Class1.Addiere(1, 2);
+            Console.WriteLine(ergebnis2);
+
         }
     }
 }
