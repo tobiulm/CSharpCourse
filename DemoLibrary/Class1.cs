@@ -331,5 +331,26 @@ namespace NewElements.DemoLibrary
             }
 
         }
+
+        /// <summary>
+        /// Beispiel für die Verwendung von Strukturen
+        /// </summary>
+        public static void StrukturenDemo()
+        {
+            Punkt2D p1;
+            p1.X = 12.98f;
+            p1.Y = 21.89f;
+
+            Punkt2D p2;
+            p2.X = 34.78f;
+            p2.Y = 43.87f;
+
+            Punkt2D p3 = p1.AddiereVektor(15.32f, 67.12f);
+            Console.WriteLine($"p1.X={p1.X}; p1.Y={p1.Y}; Vektor.X=15.32; Vektor.Y=67.12; => Eregbnis: p3.X={p3.X}; p3.Y={p3.Y}");
+
+            Punkt2D p4 = p2.AddiereVektor(p3);
+            Console.WriteLine($"p2.X={p2.X}; p2.Y={p2.Y}; Vektor.X={p3.X}; Vektor.Y={p3.Y}; => Eregbnis: p4.X={p4.X}; p4.Y={p4.Y}");
+
+        }
     }
 }

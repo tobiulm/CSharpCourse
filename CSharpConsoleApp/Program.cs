@@ -79,9 +79,13 @@ namespace NewElements.CSharpConsoleApp
             //  **********************************************************************************************
 
             // Demo für Enumerationen
-            Wochentage meinTag = Wochentage.Donnerstag;
-            Class1.EnumDemo(meinTag);
-            Class1.EnumDemo(Wochentage.Samstag);
+            //Wochentage meinTag = Wochentage.Donnerstag;
+            //Class1.EnumDemo(meinTag);
+            //Class1.EnumDemo(Wochentage.Samstag);
+
+            // Demo für Strukturen
+            Class1.StrukturenDemo();
+
 
         }
     }
