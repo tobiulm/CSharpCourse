@@ -22,7 +22,27 @@ namespace NewElements.CSharpConsoleApp
             // Class1.ArraysUndListen();
 
             // Verwendung von Kontrollstrukturen wie if oder Schleifen
-            Class1.Kontrollstrukturen();
+            // Class1.Kontrollstrukturen();
+
+            // Beispiel für Ausnahmenbehandlung
+            try
+            {
+                Class1.Ausnahmenbehandlung();
+            }
+            catch(FileNotFoundException fex)
+            {
+                Console.WriteLine("Datei konnte nicht gefunden werden. Wählen Sie bitte eine andere Datei zu öffnen aus.....");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                Console.WriteLine("Upps, das hätte nicht passieren dürfen.... ;-)");
+            }
+            finally
+            {
+                Console.WriteLine("Dieser Code wird immer garantiert ausgeführt! Egal ob im try Block eine Exception passiert (=>  catch) oder nicht.");
+            }
+            Console.Write("Dieser Code läuft nach der Exception, oder etwa nicht?");
         }
     }
 }

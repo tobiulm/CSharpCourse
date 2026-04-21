@@ -213,5 +213,13 @@ namespace NewElements.DemoLibrary
                
             }
         }
+
+        /// <summary>
+        /// Beispiele für Exception Handling (Ausnahmebehandlung)
+        /// </summary>
+        public static void Ausnahmenbehandlung()
+        {
+            throw new ApplicationException("Dies ist ein Demofehler!");
+        }
     }
 }
