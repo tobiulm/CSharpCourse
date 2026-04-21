@@ -44,35 +44,44 @@ namespace NewElements.CSharpConsoleApp
             //}
             //Console.Write("Dieser Code läuft nach der Exception, oder etwa nicht?");
 
-            // Beispiele für Methoden
-            
-            // Beispiel für Subroutine
-            Class1.SagHallo();
-            string uhrzeit = Class1.GeneriereUhrzeit();
-            Console.WriteLine(uhrzeit);
+            //// Beispiele für Methoden
 
-            // Beispiel für Funktion mit Rückgabewert
-            int nummer1 = 21;
-            int nummer2 = 21;
-            int ergebnis = Class1.Addiere(nummer1, nummer2);
-            Console.WriteLine(ergebnis);
+            //// Beispiel für Subroutine
+            //Class1.SagHallo();
+            //string uhrzeit = Class1.GeneriereUhrzeit();
+            //Console.WriteLine(uhrzeit);
+
+            //// Beispiel für Funktion mit Rückgabewert
+            //int nummer1 = 21;
+            //int nummer2 = 21;
+            //int ergebnis = Class1.Addiere(nummer1, nummer2);
+            //Console.WriteLine(ergebnis);
 
 
-            // Beispiel für Übergabeparameter als Wert oder Referenz
-            int zahl = 1;
-            Class1.ParamByValue(zahl);
-            Console.WriteLine($"Program.Main: zahl = {zahl}");
-            Class1.ParamByReference(ref zahl);
-            Console.WriteLine($"Program.Main: zahl = {zahl}");
+            //// Beispiel für Übergabeparameter als Wert oder Referenz
+            //int zahl = 1;
+            //Class1.ParamByValue(zahl);
+            //Console.WriteLine($"Program.Main: zahl = {zahl}");
+            //Class1.ParamByReference(ref zahl);
+            //Console.WriteLine($"Program.Main: zahl = {zahl}");
 
-            // Beispiele für Methodenüberladung
-            Class1.SagHallo("James");
+            //// Beispiele für Methodenüberladung
+            //Class1.SagHallo("James");
 
-            float ergebnis1 = Class1.Addiere(1, 2.34f);
-            Console.WriteLine(ergebnis1);
+            //float ergebnis1 = Class1.Addiere(1, 2.34f);
+            //Console.WriteLine(ergebnis1);
 
-            float ergebnis2 =  Class1.Addiere(1, 2);
-            Console.WriteLine(ergebnis2);
+            //float ergebnis2 =  Class1.Addiere(1, 2);
+            //Console.WriteLine(ergebnis2);
+
+            //  **********************************************************************************************
+            // Eigene Datentypen => ab hier gehts erst richtig los!!!
+            //  **********************************************************************************************
+
+            // Demo für Enumerationen
+            Wochentage meinTag = Wochentage.Donnerstag;
+            Class1.EnumDemo(meinTag);
+            Class1.EnumDemo(Wochentage.Samstag);
 
         }
     }

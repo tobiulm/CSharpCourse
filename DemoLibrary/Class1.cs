@@ -308,5 +308,28 @@ namespace NewElements.DemoLibrary
             erwin += 1;
             Console.WriteLine($"Class1.ParamByRef: zahl = {erwin}");
         }
+
+        /// <summary>
+        /// Beispiel für die Verwendung von Enumerationen
+        /// </summary>
+        /// <param name="tag">Der ausgwählte Wert aus der Enumeration Wochentage</param>
+        public static void EnumDemo(Wochentage tag)
+        {
+            Console.WriteLine(tag.ToString());
+
+            switch (tag)
+            {
+                case Wochentage.Samstag:
+                    Console.WriteLine("Yippie! Hoch die Hände! Wochenende!");
+                    break;
+                case Wochentage.Sonntag:
+                    Console.WriteLine("Immer noch frei! ;-)");
+                    break;
+                default:
+                    Console.WriteLine("Ab zum malochen!");
+                    break;
+            }
+
+        }
     }
 }
