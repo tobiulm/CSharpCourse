@@ -9,7 +9,7 @@ namespace NewElements.DemoLibrary
     /// <summary>
     /// Stellt einen Mitarbeiter in unserem System dar
     /// </summary>
-    public class Mitarbeiter : Mensch
+    public sealed class Mitarbeiter : Mensch
     {
         /// <summary>
         /// Speichert die Personalnummer des Mitarbeiters

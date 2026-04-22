@@ -373,7 +373,29 @@ namespace NewElements.DemoLibrary
             Console.WriteLine(emp2.StellDichVor());
             Console.WriteLine($"Gehalt von emp2: {emp2.Gehalt}");
             Console.WriteLine($"Mitarbeiter erbt Mensch => Der Mitarbeiter ist {emp2.Alter} Jahre alt.");
+
+            Mensch frauke = new Mensch("Frauke", "Musterfrau", Geschlecht.Frau, new DateOnly(1990, 8, 1));
+            Console.WriteLine(frauke.StellDichVor());
+            Console.WriteLine($"Frauke ist {frauke.Alter} Jahre alt.");
+
+            // Nicht erlaubt da eine abstrakte Basisklasse
+            // Säugetier tier1 = new Säugetier(); 
+            Katze lilly = new Katze();
             
+            PolymorphismusDemo(lilly);
+            PolymorphismusDemo(frauke);
+            PolymorphismusDemo(emp2);
+
+            
+        }
+
+        /// <summary>
+        /// Demonstration von abstrakten Basisklassen und Polymorphismus
+        /// </summary>
+        /// <param name="säugetier"></param>
+        public static void PolymorphismusDemo(Säugetier säugetier)
+        {
+            säugetier.Kommuniziere();
         }
     }
 }

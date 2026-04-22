@@ -9,7 +9,7 @@ namespace NewElements.DemoLibrary
     /// <summary>
     /// Stellt in unserem System die Grundlagen für einen Menschen dar
     /// </summary>
-    public class Mensch
+    public class Mensch : Säugetier
     {
         /// <summary>
         /// Speichert den Vornamen des Menschens
@@ -119,7 +119,7 @@ namespace NewElements.DemoLibrary
         /// <summary>
         /// Standardkonstruktor
         /// </summary>
-        public Mensch()
+        public Mensch():base(true)
         {
             _vorName = "";
             _nachName = "";
@@ -165,7 +165,7 @@ namespace NewElements.DemoLibrary
         /// Generiert einen Begüßungstext mit dem Vornamen und Nachnamen des Menschs
         /// </summary>
         /// <returns>Der Begüßungstext</returns>
-        public virtual string StellDichVor()
+        public override string StellDichVor()
         {
             return $"Hallo, mein Name ist {_nachName}, {_vorName} {_nachName}.";
         }
