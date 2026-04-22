@@ -394,6 +394,12 @@ namespace NewElements.DemoLibrary
 
 
             
+            frauke = null;
+            lilly = null;
+            emp1.Dispose(); // Aufruf des Destruktors => Speicherverwaltung
+            emp2.Dispose();
+
+            
         }
 
         /// <summary>

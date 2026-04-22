@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NewElements.InterfaceLibrary;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,7 +10,7 @@ namespace NewElements.DemoLibrary
     /// <summary>
     /// Stellt einen Mitarbeiter in unserem System dar
     /// </summary>
-    public sealed class Mitarbeiter : Mensch
+    public sealed class Mitarbeiter : Mensch , IMitarbeiter, IDisposable
     {
         /// <summary>
         /// Speichert die Personalnummer des Mitarbeiters
@@ -30,6 +31,7 @@ namespace NewElements.DemoLibrary
         /// Speichert einen Zufallszahlengenerator um die Personalnummern zu befüllen
         /// </summary>
         private  static Random _personalNummerGenerator = new Random();
+        private bool disposedValue;
 
 
         /// <summary>
@@ -172,5 +174,41 @@ namespace NewElements.DemoLibrary
             }
         }
 
+        private void Dispose(bool disposing)
+        {
+            if (!disposedValue)
+            {
+                if (disposing)
+                {
+                    // TODO: Verwalteten Zustand (verwaltete Objekte) bereinigen
+                    // Alle Mitarbeiter Projekt Objekte zerstören
+                    // zb.: this.Projkte[0].Dispose();
+                    VorName = "";
+                    NachName = "";
+                }
+
+                // TODO: Nicht verwaltete Ressourcen (nicht verwaltete Objekte) freigeben und Finalizer überschreiben
+                // TODO: Große Felder auf NULL setzen
+                disposedValue = true;
+            }
+        }
+
+        // // TODO: Finalizer nur überschreiben, wenn "Dispose(bool disposing)" Code für die Freigabe nicht verwalteter Ressourcen enthält
+        // ~Mitarbeiter()
+        // {
+        //     // Ändern Sie diesen Code nicht. Fügen Sie Bereinigungscode in der Methode "Dispose(bool disposing)" ein.
+        //     Dispose(disposing: false);
+        // }
+
+
+        /// <summary>
+        /// Destruktor der Klasse Mitarbeiter
+        /// </summary>
+        public void Dispose()
+        {
+            // Ändern Sie diesen Code nicht. Fügen Sie Bereinigungscode in der Methode "Dispose(bool disposing)" ein.
+            Dispose(disposing: true);
+            GC.SuppressFinalize(this);
+        }
     }
 }

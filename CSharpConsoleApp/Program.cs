@@ -10,7 +10,6 @@ namespace NewElements.CSharpConsoleApp
             //    "Hello, World!"
             //);
 
-
             // Verwendung von using ermöglicht eine Kurzschreibweise
             // NewElements.DemoLibrary.Class1.PrintTime();
             // Class1.PrintTime();

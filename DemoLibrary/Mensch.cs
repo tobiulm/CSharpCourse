@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NewElements.InterfaceLibrary;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,7 +10,7 @@ namespace NewElements.DemoLibrary
     /// <summary>
     /// Stellt in unserem System die Grundlagen für einen Menschen dar
     /// </summary>
-    public class Mensch : Säugetier
+    public class Mensch : Säugetier, IMensch
     {
         /// <summary>
         /// Speichert den Vornamen des Menschens
