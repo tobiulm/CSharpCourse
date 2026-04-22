@@ -208,14 +208,24 @@ namespace NewElements.DemoLibrary
         /// </summary>
         private void BerechneGehalt()
         {
-            _gehalt = _abteilung switch
+            switch (_abteilung)
             {
-                Abteilungen.Produktion => 40000.00m,
-                Abteilungen.Marketing => 35000.00m,
-                Abteilungen.IT => 55000.00m,
-                Abteilungen.Management => 100000.00m,
-                _ => 22000.00m,
-            };
+                case Abteilungen.Produktion:
+                    _gehalt = 40000.00m;
+                    break;
+                case Abteilungen.Marketing:
+                    _gehalt = 35000.00m;
+                    break;
+                case Abteilungen.IT:
+                    _gehalt = 55000.00m;
+                    break;
+                case Abteilungen.Management:
+                    _gehalt = 100000.00m;
+                    break;
+                default:
+                    _gehalt = 22000.00m;
+                    break;
+            }
         }
 
     }
