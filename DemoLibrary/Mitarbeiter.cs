@@ -27,6 +27,12 @@ namespace NewElements.DemoLibrary
         private  decimal _gehalt;
 
         /// <summary>
+        /// Speichert einen Zufallszahlengenerator um die Personalnummern zu befüllen
+        /// </summary>
+        private  static Random _personalNummerGenerator = new Random();
+
+
+        /// <summary>
         /// Liest die Personalnummer des Mitarbeiters
         /// </summary>
         public float PersonalNummer
@@ -90,14 +96,14 @@ namespace NewElements.DemoLibrary
         /// <summary>
         /// Standardkonstruktor
         /// </summary>
-        public Mitarbeiter()
+        public Mitarbeiter():base()
         {
             _abteilung = Abteilungen.Keine;
             _geburtsDatum = DateOnly.MinValue;
             _geschlecht = Geschlecht.NichtAngegeben;
             _nachName = "";
             VorName = "";
-            
+            _personalNummer = _personalNummerGenerator.Next(1, 1000000);
         }
 
         /// <summary>
@@ -106,7 +112,7 @@ namespace NewElements.DemoLibrary
         /// <param name="vorName">Der Vorname des Mitarbeiters</param>
         /// <param name="nachName">Der Nachname des Mitarbeiters</param>
         /// <param name="abteilung">Die Abteilung des Mitarbeiters</param>
-        public Mitarbeiter(string vorName, string nachName, Abteilungen abteilung)
+        public Mitarbeiter(string vorName, string nachName, Abteilungen abteilung):this()
         {
             VorName = vorName;
             NachName = nachName;

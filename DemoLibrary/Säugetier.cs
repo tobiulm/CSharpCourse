@@ -8,6 +8,8 @@ namespace NewElements.DemoLibrary
 {
     public abstract class Säugetier
     {
+        public static long Anzahl_Säugetiere;
+
         private bool _istEinRaubtier = false;
 
         public bool IstEinRaubtier
@@ -25,6 +27,7 @@ namespace NewElements.DemoLibrary
         public Säugetier(bool raubTier)
         {
             _istEinRaubtier = raubTier;
+            Anzahl_Säugetiere++;
         }
 
         public void Kommuniziere()
