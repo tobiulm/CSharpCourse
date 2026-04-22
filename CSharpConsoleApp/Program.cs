@@ -89,7 +89,9 @@ namespace NewElements.CSharpConsoleApp
             //Class1.OopDemo();
 
             // Demo für Delegates
-            Class1.DelegatesDemo();
+            //Class1.DelegatesDemo();
+
+            Class1.LinqDemo();
             
             
         }

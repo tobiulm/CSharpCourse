@@ -432,5 +432,19 @@ namespace NewElements.DemoLibrary
                 Console.Write($"{zahl} ");
             }
         }
+
+        public static void LinqDemo()
+        {
+            int[] zahlen = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+            var geradeZahlen = from zahl in zahlen
+                               where zahl % 2 == 0
+                               select zahl;
+
+            foreach(int zahl in geradeZahlen)
+            {
+                Console.WriteLine(zahl);
+            }
+        }
     }
 }
