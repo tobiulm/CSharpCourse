@@ -70,6 +70,24 @@ namespace NewElements.DemoLibrary
         }
 
         /// <summary>
+        /// Liest und setzt das Geburtsdatum eines Mitarbeiters. Andere Implemntierung durch SHADOWING  (new) als Mensch.GeburtsDatum. Zusätzliche überprüfung des Alters auf mindestens 16 Jahre.
+        /// </summary>
+        public new DateOnly GeburtsDatum
+        {
+            get
+            {
+                return _geburtsDatum;
+            }
+            set
+            {
+                if(value != _geburtsDatum && (DateTime.Now.Year - value.Year >= 16))
+                {
+                    base.GeburtsDatum = value;
+                }
+            }
+        }
+
+        /// <summary>
         /// Standardkonstruktor
         /// </summary>
         public Mitarbeiter()

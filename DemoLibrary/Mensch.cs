@@ -79,7 +79,7 @@ namespace NewElements.DemoLibrary
             }
             set
             {
-                if (_geburtsDatum != value && (DateTime.Now.Year - value.Year >= 16))
+                if (_geburtsDatum != value)
                 {
                     _geburtsDatum = value;
                     BerechneAlter();
