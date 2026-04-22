@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoLibrary", "DemoLibrary\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterfaceLibrary", "InterfaceLibrary\InterfaceLibrary.csproj", "{03DC0215-5748-4A9C-B144-3B47594AA270}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HRWinFormsApp", "HRWinFormsApp\HRWinFormsApp.csproj", "{581BEC40-7349-416F-9C63-ADF4D113F5C6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{03DC0215-5748-4A9C-B144-3B47594AA270}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{03DC0215-5748-4A9C-B144-3B47594AA270}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{03DC0215-5748-4A9C-B144-3B47594AA270}.Release|Any CPU.Build.0 = Release|Any CPU
+		{581BEC40-7349-416F-9C63-ADF4D113F5C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{581BEC40-7349-416F-9C63-ADF4D113F5C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{581BEC40-7349-416F-9C63-ADF4D113F5C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{581BEC40-7349-416F-9C63-ADF4D113F5C6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
