@@ -419,5 +419,18 @@ namespace NewElements.DemoLibrary
         {
             Console.WriteLine($"Anzahl der Säugetiere: {Säugetier.Anzahl_Säugetiere}");
         }
+
+        /// <summary>
+        /// Demonstriert die Verwendung von Delegates
+        /// </summary>
+        public static void DelegatesDemo()
+        {
+            int[] zahlen = { 1024, 256, 512, 64, 32, 8, 16, 128, 712, 1, 4, 2 };
+            Sortierer.BubbleSort(zahlen, SortierRichtung.Aufsteigend);
+            foreach (int zahl in zahlen)
+            {
+                Console.Write($"{zahl} ");
+            }
+        }
     }
 }
