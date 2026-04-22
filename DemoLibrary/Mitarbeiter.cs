@@ -9,32 +9,18 @@ namespace NewElements.DemoLibrary
     /// <summary>
     /// Stellt einen Mitarbeiter in unserem System dar
     /// </summary>
-    public class Mitarbeiter
+    public class Mitarbeiter : Mensch
     {
         /// <summary>
         /// Speichert die Personalnummer des Mitarbeiters
         /// </summary>
         private float _personalNummer;
-        /// <summary>
-        /// Speichert den Vornamen des Mitarbeiters
-        /// </summary>
-        private string _vorName;
-        /// <summary>
-        /// Speichert den Nachnamen des Mitarbeiters
-        /// </summary>
-        private string _nachName;
-        /// <summary>
-        /// Speichert das Geburtsdatum des Mitarbeiters
-        /// </summary>
-        private DateOnly _geburtsDatum;
+        
         /// <summary>
         /// Speichert die Abteilung des Mitarbeiters
         /// </summary>
         private Abteilungen _abteilung;
-        /// <summary>
-        /// Speichert das Geschlecht des Mitarbeiters
-        /// </summary>
-        private Geschlecht _geschlecht;
+        
         /// <summary>
         /// Speichert das Gehalt des Mitarbeiters
         /// </summary>
@@ -48,60 +34,6 @@ namespace NewElements.DemoLibrary
             get
             {
                 return _personalNummer;
-            }
-        }
-
-        /// <summary>
-        /// Liest oder setzt den Vornamen des Mitarbeiters
-        /// </summary>
-        public string VorName
-        {
-            get
-            {
-                return _vorName;
-            }
-            set
-            {
-                if (_vorName != value && value.Length > 0)
-                {
-                    _vorName = value;
-                }
-            }
-        }
-
-        /// <summary>
-        /// Liest oder setzt den Nachnamen des Mitarbeiters
-        /// </summary>
-        public string NachName
-        {
-            get
-            {
-                return _nachName;
-            }
-            set
-            {
-                if (_nachName != value && value.Length > 0)
-                {
-                    _nachName = value;
-                }
-            }
-        }
-
-        /// <summary>
-        /// Liest oder setzt das Geburtsdatum des Mitarbeiters
-        /// </summary>
-        public DateOnly GeburtsDatum
-        {
-            get
-            {
-                return _geburtsDatum;
-            }
-            set
-            {
-                if (_geburtsDatum != value && (DateTime.Now.Year - value.Year >= 16))
-                {
-                    _geburtsDatum = value;
-                }
             }
         }
 
@@ -124,23 +56,7 @@ namespace NewElements.DemoLibrary
             }
         }
 
-        /// <summary>
-        /// Liest oder setzt das Geschlecht des Mitarbeiters
-        /// </summary>
-        public Geschlecht Geschlecht
-        {
-            get
-            {
-                return _geschlecht;
-            }
-            set
-            {
-                if (value != _geschlecht)
-                {
-                    _geschlecht = value;
-                }
-            }
-        }
+       
 
         /// <summary>
         /// List das Gehalt eines Mitarbeiters aus
@@ -162,7 +78,8 @@ namespace NewElements.DemoLibrary
             _geburtsDatum = DateOnly.MinValue;
             _geschlecht = Geschlecht.NichtAngegeben;
             _nachName = "";
-            _vorName = "";
+            VorName = "";
+            
         }
 
         /// <summary>
@@ -192,15 +109,18 @@ namespace NewElements.DemoLibrary
             GeburtsDatum = geburtsDatum;
         }
 
-
-
         /// <summary>
         /// Generiert einen Begüßungstext des Mitarbeiters
         /// </summary>
         /// <returns>Der Begrüßungstext mir Vorname und Abteilung</returns>
-        public string StellDichVor()
+        public override string StellDichVor()
         {
-            return $"Hallo, mein Name ist {_vorName} und ich arbeite in der Abteilung {_abteilung}.";
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("#################################################################################################################");
+            sb.AppendLine(base.StellDichVor()); // base = ruft die originale Mensch.StellDichVor Methode auf!
+            sb.AppendLine($"Ich arbeite in der Abteilung {_abteilung} und meine Personalnummer lautet: {_personalNummer}.");
+            sb.AppendLine("#################################################################################################################");
+            return sb.ToString();
         }
 
         /// <summary>

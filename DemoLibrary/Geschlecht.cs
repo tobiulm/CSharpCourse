@@ -18,7 +18,7 @@
         /// </summary>
         Divers,
         /// <summary>
-        /// Repräsentiert kein Angegebenes Geschlecht
+        /// Repräsentiert kein angegebenes Geschlecht
         /// </summary>
         NichtAngegeben
     }

@@ -372,6 +372,8 @@ namespace NewElements.DemoLibrary
             Mitarbeiter emp2 = new Mitarbeiter("James", "Bond", Abteilungen.Produktion, Geschlecht.Mann, new DateOnly(1955, 4, 12));
             Console.WriteLine(emp2.StellDichVor());
             Console.WriteLine($"Gehalt von emp2: {emp2.Gehalt}");
+            Console.WriteLine($"Mitarbeiter erbt Mensch => Der Mitarbeiter ist {emp2.Alter} Jahre alt.");
+            
         }
     }
 }
