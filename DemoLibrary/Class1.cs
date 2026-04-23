@@ -476,5 +476,20 @@ namespace NewElements.DemoLibrary
                 Console.WriteLine($"DeveloperInfoAttribute nicht gefunden.{System.Environment.NewLine}Beende das Programm.");
             }
         }
+
+        /// <summary>
+        /// Beispiele für Generics => System.Collections.Generic
+        /// </summary>
+        public static void GenerikaDemo()
+        {
+            List<int> meineListe = new List<int>();
+            meineListe.Add(12);
+
+            int meinWert = meineListe[0];
+
+            PersonenListe<Kunde> neueListe = new PersonenListe<Kunde>();
+            
+
+        }
     }
 }
