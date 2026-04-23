@@ -505,8 +505,8 @@ namespace NewElements.DemoLibrary
 
 
 
-            IEnumerable<Mensch> frauen = new List<Mensch>(); // Schnittstellenpolymorphismus
-
+            // IEnumerable<Mensch> frauen = new List<Mensch>(); // Schnittstellenpolymorphismus
+            
 
             // Lambda Schritt 1
             //foreach(Mensch m in personen)
@@ -555,7 +555,7 @@ namespace NewElements.DemoLibrary
             //});
 
             // Lambda Schritt 6
-            frauen = personen.Where(m => m.Geschlecht == Geschlecht.Frau || m.Geschlecht == Geschlecht.Divers); // Das ist ein Lamda Ausdruck!!!
+            var frauen = personen.Where(m => m.Geschlecht == Geschlecht.Frau || m.Geschlecht == Geschlecht.Divers); // Das ist ein Lamda Ausdruck!!!
 
 
             foreach (Mensch m in frauen)
@@ -574,6 +574,21 @@ namespace NewElements.DemoLibrary
             //}
             //return ergebnis;
             return m.Geschlecht == Geschlecht.Frau ? true : false;
+        }
+
+        /// <summary>
+        /// Beispiel für die Typenermittlung in C# => aka var Keyword
+        /// </summary>
+        public static void TypenErmittlung() // Typeinferencing
+        {
+            int i = 42;
+            var tobi = new Mensch();
+
+            var j = "42";
+
+            var z = true;
+
+
         }
 
     }

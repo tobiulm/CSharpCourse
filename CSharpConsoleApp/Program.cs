@@ -99,7 +99,10 @@ namespace NewElements.CSharpConsoleApp
             //Console.WriteLine(emp1.ZeigeMitarbeiterInfos());
 
             // Lambda Ausdrücke Demo
-            Class1.LambdaExpressionsDemo();
+            //Class1.LambdaExpressionsDemo();
+
+            // Typenermittlung
+            Class1.TypenErmittlung();
         }
     }
 }
