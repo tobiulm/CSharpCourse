@@ -1,4 +1,6 @@
-﻿namespace NewElements.DemoLibrary
+﻿using System.Text.Json.Serialization;
+
+namespace NewElements.DemoLibrary
 {
     /// <summary>
     /// Repräsentiert die Abteilungen in unserer Welt

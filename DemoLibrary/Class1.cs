@@ -1,4 +1,5 @@
-﻿using System.Runtime.InteropServices;
+﻿using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace NewElements.DemoLibrary
 {
@@ -82,12 +83,12 @@ namespace NewElements.DemoLibrary
 
             // Tabelle
             int[,] tabelle = new int[3, 4];
-            tabelle[0,0] = 1;
-            tabelle[0,1] = 2;
-            tabelle[0,2] = 3;
+            tabelle[0, 0] = 1;
+            tabelle[0, 1] = 2;
+            tabelle[0, 2] = 3;
 
             tabelle[2, 3] = 12;
-            Console.WriteLine($"tabelle an der Position 2,3 hat den Wert:\t{tabelle[2,3]}. Insgesamt gibt es {tabelle.Length} Speichermöglichkeiten");
+            Console.WriteLine($"tabelle an der Position 2,3 hat den Wert:\t{tabelle[2, 3]}. Insgesamt gibt es {tabelle.Length} Speichermöglichkeiten");
 
             // Würfel
             int[,,] würfel = new int[4, 5, 3];
@@ -99,7 +100,7 @@ namespace NewElements.DemoLibrary
             myList.Add(zahlen2);
 
             int value = (int)myList[0];
-         }
+        }
 
         /// <summary>
         /// Demonstriert die Steuerung eines Codes durch Iterationen und Entscheidungen
@@ -116,11 +117,11 @@ namespace NewElements.DemoLibrary
             Console.WriteLine("\tBitte geben Sie Ihren Namen ein:");
             name = Console.ReadLine()!;
 
-            if(name == "Oliver")
+            if (name == "Oliver")
             {
                 Console.WriteLine("Hi Oliver");
             }
-            else if(name == "Verena")
+            else if (name == "Verena")
             {
                 Console.WriteLine("Servus Verena!");
             }
@@ -160,7 +161,7 @@ namespace NewElements.DemoLibrary
             string[] namen = { "Verena", "Oliver", "Enno", "Fabian", "Janik", "Tobi" };
 
             Console.WriteLine("\tfor Schleife:");
-            for(int zähler = 0; zähler < namen.GetUpperBound(0); ++zähler)
+            for (int zähler = 0; zähler < namen.GetUpperBound(0); ++zähler)
             {
                 Console.WriteLine($"Name an Position: {namen[zähler]} => {zähler}");
             }
@@ -172,12 +173,12 @@ namespace NewElements.DemoLibrary
                 // ++doZähler;
                 Console.WriteLine($"Name an Position: {namen[doZähler]} => {doZähler}");
                 ++doZähler;
-            } while(doZähler < namen.GetUpperBound(0));
+            } while (doZähler < namen.GetUpperBound(0));
 
 
             Console.WriteLine("\twhile Schleife [Kopfgesteuert]:");
-            int whileZähler = 0;            
-            while(whileZähler < namen.GetUpperBound(0))
+            int whileZähler = 0;
+            while (whileZähler < namen.GetUpperBound(0))
             {
                 Console.WriteLine($"Name an Position: {namen[whileZähler]} => {whileZähler}");
                 whileZähler++;
@@ -185,7 +186,7 @@ namespace NewElements.DemoLibrary
 
             Console.WriteLine("********************************************************************************");
             Console.WriteLine("foreach Statement");
-            foreach(string vname in namen)
+            foreach (string vname in namen)
             {
                 Console.WriteLine(vname);
             }
@@ -199,9 +200,9 @@ namespace NewElements.DemoLibrary
             Console.WriteLine("********************************************************************************");
             Console.WriteLine("Schleifen steuern mit continue und break");
             int[] zahlen = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-            for(int zähler = 0; zähler <= zahlen.GetUpperBound(0); zähler++)
+            for (int zähler = 0; zähler <= zahlen.GetUpperBound(0); zähler++)
             {
-                if(zähler == 5)
+                if (zähler == 5)
                 {
                     continue;
                 }
@@ -210,7 +211,7 @@ namespace NewElements.DemoLibrary
                     break;
                 }
                 Console.WriteLine($"zähler hat den Wert: {zähler}; \t Eintrag in der Liste: {zahlen[zähler]}");
-               
+
             }
         }
 
@@ -393,13 +394,13 @@ namespace NewElements.DemoLibrary
             PolymorphismusDemo(emp2);
 
 
-            
+
             frauke = null;
             lilly = null;
             emp1.Dispose(); // Aufruf des Destruktors => Speicherverwaltung
             emp2.Dispose();
 
-            
+
         }
 
         /// <summary>
@@ -433,38 +434,24 @@ namespace NewElements.DemoLibrary
             }
         }
 
-        //public static void LinqDemo()
-        //{
-        //    int[] zahlen = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-
-        //    var geradeZahlen = from zahl in zahlen
-        //                       where zahl % 2 == 0
-        //                       select zahl;
-
-        //    foreach(int zahl in geradeZahlen)
-        //    {
-        //        Console.WriteLine(zahl);
-        //    }
-        //}
-
         /// <summary>
         /// Zeigt die Verwendung von Attributen in .net
         /// </summary>
         public static void AttributeDemo()
         {
-            string datei = @"C:\Windows\Media\chord.wav";
+            string datei = @"C:\Windows\Media\tada.wav";
             Console.WriteLine($"Spiele Audiodatei: {datei}...");
-            int wert =  InteropDemo.SpieleSound(ref datei, 0);
+            bool wert = InteropDemo.SpieleSound(datei, new System.IntPtr(), PlaySoundFlags.SND_SYNC);
             Console.WriteLine(wert);
 
             // Verwendung unsers eigenen Attributes DevelopInfoAttribute
             Mitarbeiter emp1 = new Mitarbeiter();
-            DeveloperInfoAttribute meinAttribut = (DeveloperInfoAttribute) Attribute.GetCustomAttribute(emp1.GetType(), typeof(DeveloperInfoAttribute));
-            
+            DeveloperInfoAttribute meinAttribut = (DeveloperInfoAttribute)Attribute.GetCustomAttribute(emp1.GetType(), typeof(DeveloperInfoAttribute));
+
             if (meinAttribut != null)
             {
                 Console.WriteLine("DeveloperInfoAttribute gefunden!");
-                if(meinAttribut.DeveloperName == "Tobi Ulm")
+                if (meinAttribut.DeveloperName == "Tobi Ulm")
                 {
                     Console.WriteLine("Vertrauenswürdiger Sourcecode...");
                     Console.WriteLine("Fahre mit der Ausführung des Programmes fort...");
@@ -490,6 +477,9 @@ namespace NewElements.DemoLibrary
             PersonenListe<Kunde> neueListe = new PersonenListe<Kunde>();
         }
 
+        /// <summary>
+        /// Herleitung der Lambda Ausdrücke aus Delegates, Anonymen Methoden, Erweiterungsmethoden
+        /// </summary>
         public static void LambdaExpressionsDemo()
         {
             List<Mensch> personen = new List<Mensch>();
@@ -506,7 +496,7 @@ namespace NewElements.DemoLibrary
 
 
             // IEnumerable<Mensch> frauen = new List<Mensch>(); // Schnittstellenpolymorphismus
-            
+
 
             // Lambda Schritt 1
             //foreach(Mensch m in personen)
@@ -587,8 +577,113 @@ namespace NewElements.DemoLibrary
             var j = "42";
 
             var z = true;
+        }
+
+        /// <summary>
+        /// Beispiele für LINQ => Language INtegrated Query
+        /// </summary>
+        public static void LinqDemo()
+        {
+            int[] zahlen = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+            //var geradeZahlen = zahlen.Where(zahl => zahl % 2 == 0); // Filterung per Lambda Ausdruck;
 
 
+            var geradeZahlen = from zahl in zahlen
+                               where zahl % 2 == 0
+                               select zahl;
+
+
+            foreach (var zahl in geradeZahlen)
+            {
+                Console.WriteLine(zahl);
+            }
+
+            List<Mitarbeiter> angestellte = new List<Mitarbeiter>();
+            angestellte.Add(new Mitarbeiter("vEmp1", "nEmp1", Abteilungen.Produktion, Geschlecht.Frau, new DateOnly(1980, 4, 12)));
+            angestellte.Add(new Mitarbeiter("vEmp2", "nEmp2", Abteilungen.Marketing, Geschlecht.Frau, new DateOnly(1976, 6, 5)));
+            angestellte.Add(new Mitarbeiter("vEmp3", "nEmp3", Abteilungen.Produktion, Geschlecht.Mann, new DateOnly(1983, 1, 21)));
+            angestellte.Add(new Mitarbeiter("vEmp4", "nEmp4", Abteilungen.IT, Geschlecht.Frau, new DateOnly(1989, 5, 12)));
+            angestellte.Add(new Mitarbeiter("vEmp5", "nEmp5", Abteilungen.Management, Geschlecht.Mann, new DateOnly(1979, 11, 28)));
+            angestellte.Add(new Mitarbeiter("vEmp6", "nEmp6", Abteilungen.Produktion, Geschlecht.Mann, new DateOnly(1980, 1, 12)));
+            angestellte.Add(new Mitarbeiter("vEmp7", "nEmp7", Abteilungen.Marketing, Geschlecht.Mann, new DateOnly(1981, 4, 12)));
+            angestellte.Add(new Mitarbeiter("vEmp8", "nEmp8", Abteilungen.Produktion, Geschlecht.Mann, new DateOnly(1986, 4, 12)));
+            angestellte.Add(new Mitarbeiter("vEmp9", "nEmp9", Abteilungen.Produktion, Geschlecht.Frau, new DateOnly(1989, 4, 12)));
+            angestellte.Add(new Mitarbeiter("vEmp10", "nEmp10", Abteilungen.IT, Geschlecht.Mann, new DateOnly(1990, 4, 12)));
+            angestellte.Add(new Mitarbeiter("vEmp11", "nEmp11", Abteilungen.Marketing, Geschlecht.Frau, new DateOnly(2000, 4, 12)));
+            angestellte.Add(new Mitarbeiter("vEmp13", "nEmp13", Abteilungen.Produktion, Geschlecht.Frau, new DateOnly(1996, 4, 12)));
+            angestellte.Add(new Mitarbeiter("vEmp14", "nEmp14", Abteilungen.IT, Geschlecht.Mann, new DateOnly(1989, 4, 12)));
+
+            var frauen = from ma in angestellte
+                         where ma.Geschlecht == Geschlecht.Frau && ma.Alter >= 30
+                         select ma;
+
+
+            var männer = from ma in angestellte
+                         where ma.Geschlecht == Geschlecht.Mann && ma.Abteilung == Abteilungen.Produktion
+                         select ma;
+
+            Console.WriteLine("##########################################################################################################################");
+            Console.WriteLine("###                                                Frauen                                                             ###");
+            Console.WriteLine("##########################################################################################################################");
+
+
+            foreach ( var ma in frauen)
+            {
+                Console.WriteLine(ma.StellDichVor());
+            }
+
+            Console.WriteLine("##########################################################################################################################");
+            Console.WriteLine("###                                                Männer                                                              ###");
+            Console.WriteLine("##########################################################################################################################");
+            foreach(var ma in männer)
+            {
+                Console.WriteLine(ma.StellDichVor());
+            }
+
+            SpeichereJsonDokument(angestellte); // generiere ein Json Text Dokument
+
+            // Laden eines Json Dokumentes in einen String
+            string json = LadeJsonDokument();
+            JsonDocument doc = JsonDocument.Parse(json);
+            var personalNummern = from pnr in doc.RootElement.EnumerateArray()
+                                  where Enum.Parse<Abteilungen>(pnr!.GetProperty("Abteilung").ToString()) == Abteilungen.Produktion
+                                  select pnr;
+
+            foreach (var pnr in personalNummern)
+            {
+                Console.WriteLine(pnr.ToString());
+            }
+
+        }
+
+        /// <summary>
+        /// Speichert eine Mitarbeiterliste als JSON Dokument
+        /// </summary>
+        /// <param name="source">Die Liste der Mitarbeiter</param>
+        private static void SpeichereJsonDokument(List<Mitarbeiter> source)
+        {
+            var customEnumStringOptions = new JsonSerializerOptions { WriteIndented = true };
+            // Extra Option um die Werte von Enumerationen mitzuspeichern
+            customEnumStringOptions.Converters.Add(new JsonStringEnumConverter());
+            string jsonString = JsonSerializer.Serialize(source, customEnumStringOptions);
+            using (StreamWriter outputFile = new StreamWriter("mitarbeiter.json"))
+            {
+                outputFile.WriteLine(jsonString);
+            }
+        }
+
+        /// <summary>
+        /// Lädt das JSON Dokument der Mitarbeiter und gibt dieses als string zurück
+        /// </summary>
+        /// <returns>Der JSON string mit allen Mitarbeitern</returns>
+        private static string LadeJsonDokument()
+        {
+            string json = "";
+            using (StreamReader r = new StreamReader("mitarbeiter.json"))
+            {
+                json = r.ReadToEnd();
+            }
+            return json;
         }
 
     }
