@@ -446,5 +446,35 @@ namespace NewElements.DemoLibrary
                 Console.WriteLine(zahl);
             }
         }
+
+        /// <summary>
+        /// Zeigt die Verwendung von Attributen in .net
+        /// </summary>
+        public static void AttributeDemo()
+        {
+            string datei = @"C:\Windows\Media\chord.wav";
+            Console.WriteLine($"Spiele Audiodatei: {datei}...");
+            int wert =  InteropDemo.SpieleSound(ref datei, 0);
+            Console.WriteLine(wert);
+
+            // Verwendung unsers eigenen Attributes DevelopInfoAttribute
+            Mitarbeiter emp1 = new Mitarbeiter();
+            DeveloperInfoAttribute meinAttribut = (DeveloperInfoAttribute) Attribute.GetCustomAttribute(emp1.GetType(), typeof(DeveloperInfoAttribute));
+            
+            if (meinAttribut != null)
+            {
+                Console.WriteLine("DeveloperInfoAttribute gefunden!");
+                if(meinAttribut.DeveloperName == "Tobi Ulm")
+                {
+                    Console.WriteLine("Vertrauenswürdiger Sourcecode...");
+                    Console.WriteLine("Fahre mit der Ausführung des Programmes fort...");
+                }
+                return;
+            }
+            else
+            {
+                Console.WriteLine($"DeveloperInfoAttribute nicht gefunden.{System.Environment.NewLine}Beende das Programm.");
+            }
+        }
     }
 }

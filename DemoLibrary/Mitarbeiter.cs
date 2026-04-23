@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace NewElements.DemoLibrary
@@ -10,6 +11,7 @@ namespace NewElements.DemoLibrary
     /// <summary>
     /// Stellt einen Mitarbeiter in unserem System dar
     /// </summary>
+    //[DeveloperInfo("Tobi Ulm", "tu@tobiasulm.net")]
     public sealed class Mitarbeiter : Mensch , IMitarbeiter, IDisposable
     {
         /// <summary>

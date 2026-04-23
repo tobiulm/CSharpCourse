@@ -91,8 +91,8 @@ namespace NewElements.CSharpConsoleApp
             // Demo für Delegates
             //Class1.DelegatesDemo();
 
-            Class1.LinqDemo();
-            
+            // Demos für Attribute
+            Class1.AttributeDemo();
             
         }
     }
