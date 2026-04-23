@@ -17,6 +17,10 @@ namespace HRWinFormsApp
         {
             InitializeComponent();
             Form1.Mitarbeiter.AbteilungVerändert += Mitarbeiter_AbteilungVerändert;
+            // Anonyme Methode
+            Form1.Mitarbeiter.AbteilungVerändert += delegate {
+                meldungsLabel.Text = $"Die Abteilung um {DateTime.Now.ToLongTimeString()} geändert.";
+            };
         }
 
         /// <summary>
