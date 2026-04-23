@@ -433,19 +433,19 @@ namespace NewElements.DemoLibrary
             }
         }
 
-        public static void LinqDemo()
-        {
-            int[] zahlen = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+        //public static void LinqDemo()
+        //{
+        //    int[] zahlen = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 
-            var geradeZahlen = from zahl in zahlen
-                               where zahl % 2 == 0
-                               select zahl;
+        //    var geradeZahlen = from zahl in zahlen
+        //                       where zahl % 2 == 0
+        //                       select zahl;
 
-            foreach(int zahl in geradeZahlen)
-            {
-                Console.WriteLine(zahl);
-            }
-        }
+        //    foreach(int zahl in geradeZahlen)
+        //    {
+        //        Console.WriteLine(zahl);
+        //    }
+        //}
 
         /// <summary>
         /// Zeigt die Verwendung von Attributen in .net
@@ -488,8 +488,92 @@ namespace NewElements.DemoLibrary
             int meinWert = meineListe[0];
 
             PersonenListe<Kunde> neueListe = new PersonenListe<Kunde>();
-            
+        }
+
+        public static void LambdaExpressionsDemo()
+        {
+            List<Mensch> personen = new List<Mensch>();
+            personen.Add(new Mensch("A", "A", Geschlecht.Frau));
+            personen.Add(new Mensch("B", "B", Geschlecht.Frau));
+            personen.Add(new Mensch("C", "C", Geschlecht.Mann));
+            personen.Add(new Mensch("D", "D", Geschlecht.Frau));
+            personen.Add(new Mensch("E", "E", Geschlecht.Mann));
+            personen.Add(new Mensch("F", "F", Geschlecht.Mann));
+            personen.Add(new Mensch("G", "G", Geschlecht.Frau));
+            personen.Add(new Mensch("H", "H", Geschlecht.Mann));
+
+
+
+            IEnumerable<Mensch> frauen = new List<Mensch>(); // Schnittstellenpolymorphismus
+
+
+            // Lambda Schritt 1
+            //foreach(Mensch m in personen)
+            //{
+            //    if(m.Geschlecht == Geschlecht.Frau)
+            //    {
+            //        frauen.Add(m);
+            //    }
+            //}
+
+            // Lambda Schritt 2
+            //Func<Mensch, bool> zeigerAufDieFilterFunktion = FilterNachFrauen; //generischer Delegate
+            //frauen = personen.Where(zeigerAufDieFilterFunktion);
+
+            // Lambda Schritt 3
+            //frauen = personen.Where(delegate (Mensch m)
+            //{
+            //    bool ergebnis = false;
+            //    if (m.Geschlecht == Geschlecht.Frau)
+            //    {
+            //        ergebnis = true;
+            //    }
+            //    return ergebnis;
+            //});
+
+            // Lambda Schritt 4
+            //frauen = personen.Where((Mensch m) => // Lamda Operator =>
+            //{
+            //    bool ergebnis = false;
+            //    if (m.Geschlecht == Geschlecht.Frau)
+            //    {
+            //        ergebnis = true;
+            //    }
+            //    return ergebnis;
+            //});
+
+            // Lambda Schritt 5
+            //frauen = personen.Where(m => // wegnahme des datentyps des Parameters m => ergibt sich aus der liste personen = IEnumable<Mensch>
+            //{
+            //    bool ergebnis = false;
+            //    if (m.Geschlecht == Geschlecht.Frau)
+            //    {
+            //        ergebnis = true;
+            //    }
+            //    return ergebnis;
+            //});
+
+            // Lambda Schritt 6
+            frauen = personen.Where(m => m.Geschlecht == Geschlecht.Frau); // Das ist ein Lamda Ausdruck!!!
+
+
+            foreach (Mensch m in frauen)
+            {
+                Console.WriteLine($"{m.VorName} {m.NachName} {m.Geschlecht}");
+            }
 
         }
+
+        private static bool FilterNachFrauen(Mensch m)
+        {
+            //bool ergebnis = false;
+            //if(m.Geschlecht == Geschlecht.Frau)
+            //{
+            //    ergebnis = true;
+            //}
+            //return ergebnis;
+            return m.Geschlecht == Geschlecht.Frau ? true : false;
+        }
+
     }
 }

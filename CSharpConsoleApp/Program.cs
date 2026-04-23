@@ -95,8 +95,11 @@ namespace NewElements.CSharpConsoleApp
             //Class1.AttributeDemo();
 
             // Demo für Extensionmethods aka Erweiterungsmethoden
-            Mitarbeiter emp1 = new Mitarbeiter("Otto", "Waalkes", Abteilungen.Produktion);
-            Console.WriteLine(emp1.ZeigeMitarbeiterInfos());
+            //Mitarbeiter emp1 = new Mitarbeiter("Otto", "Waalkes", Abteilungen.Produktion);
+            //Console.WriteLine(emp1.ZeigeMitarbeiterInfos());
+
+            // Lambda Ausdrücke Demo
+            Class1.LambdaExpressionsDemo();
         }
     }
 }
