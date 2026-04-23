@@ -1,10 +1,19 @@
+using NewElements.DemoLibrary;
+
 namespace HRWinFormsApp
 {
     public partial class Form1 : Form
     {
+        internal static Mitarbeiter Mitarbeiter;
+
         public Form1()
         {
             InitializeComponent();
+            Mitarbeiter = new Mitarbeiter();
+            abteilungComboBox.DataSource = Enum.GetValues<Abteilungen>();
+
+            CustomEventsForm ereignisForm = new CustomEventsForm();
+            ereignisForm.Show();
         }
 
         private void mainButton_Click(object sender, EventArgs e)
@@ -26,6 +35,13 @@ namespace HRWinFormsApp
         private void eventHandlerLösenButton_Click(object sender, EventArgs e)
         {
             mainButton.Click -= Helga;
+        }
+
+        private void abteilungComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Mitarbeiter.Abteilung = Enum.Parse<Abteilungen>(abteilungComboBox.Text);
+
+            abteilungLabel.Text = Mitarbeiter.Abteilung.ToString(); 
         }
     }
 }

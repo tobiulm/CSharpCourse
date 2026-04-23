@@ -33,6 +33,16 @@ namespace NewElements.DemoLibrary
         private  static Random _personalNummerGenerator = new Random();
         private bool disposedValue;
 
+        /// <summary>
+        /// Die Delegatedefinition für unser Ereignis AbteilungVerändert
+        /// </summary>
+        public delegate void AbteilungVerändertEventHandler(AbteilungVerändertEventArgs e);
+        /// <summary>
+        /// Das Ereignis AbteilungVerändert wird ausgelöst wenn die Abteilung des Mitarbeiters auf einen anderen Wert gesetzt wird.
+        /// </summary>
+        public event AbteilungVerändertEventHandler AbteilungVerändert;
+
+
 
         /// <summary>
         /// Liest die Personalnummer des Mitarbeiters
@@ -58,8 +68,14 @@ namespace NewElements.DemoLibrary
             {
                 if (value != _abteilung)
                 {
+                    string alteAbteilung = _abteilung.ToString();
                     _abteilung = value;
                     BerechneGehalt();
+                    if(AbteilungVerändert != null) // Gibt es irgend jemanden den unser Ereignis interessiert? Wenn ja dann...
+                    {
+                        // Auslösen des AbteilungVerändert Ereignisses
+                        AbteilungVerändert(new AbteilungVerändertEventArgs(alteAbteilung, _abteilung.ToString()));
+                    }
                 }
             }
         }
