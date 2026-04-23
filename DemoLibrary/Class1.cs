@@ -501,6 +501,7 @@ namespace NewElements.DemoLibrary
             personen.Add(new Mensch("F", "F", Geschlecht.Mann));
             personen.Add(new Mensch("G", "G", Geschlecht.Frau));
             personen.Add(new Mensch("H", "H", Geschlecht.Mann));
+            personen.Add(new Mensch("I", "I", Geschlecht.Divers));
 
 
 
@@ -554,7 +555,7 @@ namespace NewElements.DemoLibrary
             //});
 
             // Lambda Schritt 6
-            frauen = personen.Where(m => m.Geschlecht == Geschlecht.Frau); // Das ist ein Lamda Ausdruck!!!
+            frauen = personen.Where(m => m.Geschlecht == Geschlecht.Frau || m.Geschlecht == Geschlecht.Divers); // Das ist ein Lamda Ausdruck!!!
 
 
             foreach (Mensch m in frauen)
