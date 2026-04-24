@@ -16,18 +16,25 @@ namespace NewElements.DemoLibrary
         /// Diese C# Methode ist lediglich ein Proxy und reicht den Aufruf auf die PlaySound Methode aus der C Bibliothek winmm.dll weiter um eine Audiodatei zu spielen
         /// </summary>
         /// <param name="dateiName">Der Name der Audiodatei die abgespielt werden soll</param>
-        /// <param name="dwFlags"></param>
+        /// <param name="hMod">Keine Ahnung was dieser Parameter bedeuten soll</param>
+        /// <param name="flags">Damit wird gesteuert wie die Audiodatei abgespielt werden soll (z.b. in der schleife)</param>
         /// <returns></returns>
         [DllImport("winmm.DLL", EntryPoint = "PlaySound", SetLastError = true, CharSet = CharSet.Unicode, ThrowOnUnmappableChar = true)]
-        public static extern bool SpieleSound(string szSound, System.IntPtr hMod, PlaySoundFlags flags);
+        public static extern bool SpieleSound(string dateiName, System.IntPtr hMod, PlaySoundFlags flags);
     }
 
+    /// <summary>
+    /// Diese Enumeration gibt vor wie Audiodateien abgespielt werden sollen.
+    /// </summary>
     [System.Flags]
     public enum PlaySoundFlags : int
     {
         SND_SYNC = 0x0000,
         SND_ASYNC = 0x0001,
         SND_NODEFAULT = 0x0002,
+        /// <summary>
+        /// Spiele die Datei in einer Schleife ab
+        /// </summary>
         SND_LOOP = 0x0008,
         SND_NOSTOP = 0x0010,
         SND_NOWAIT = 0x00002000,

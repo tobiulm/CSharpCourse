@@ -92,7 +92,7 @@ namespace NewElements.CSharpConsoleApp
             //Class1.DelegatesDemo();
 
             // Demos für Attribute
-            Class1.AttributeDemo();
+            //Class1.AttributeDemo();
 
             // Demo für Extensionmethods aka Erweiterungsmethoden
             //Mitarbeiter emp1 = new Mitarbeiter("Otto", "Waalkes", Abteilungen.Produktion);
@@ -105,7 +105,7 @@ namespace NewElements.CSharpConsoleApp
             //Class1.TypenErmittlung();
 
             // Linq
-            //Class1.LinqDemo();
+            Class1.LinqDemo();
         }
     }
 }
