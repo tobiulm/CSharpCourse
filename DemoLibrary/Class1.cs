@@ -727,6 +727,30 @@ namespace NewElements.DemoLibrary
                 }
 
             }
+
+            // Objekt Relational Mapping
+            Console.WriteLine("*************************************************************************************************************");
+
+            Customer cust1 = new Customer("ALFKI");
+            Console.WriteLine($"Firma: {cust1.CompanyName}; Stadt: {cust1.City}; Land: {cust1.Country}");
+
+
+            Console.WriteLine("*************************************************************************************************************");
+            var customers = Customer.LoadAllCustomers();
+            foreach (var customer in customers)
+            {
+                Console.WriteLine($"Firma: {customer.CompanyName}; Stadt: {customer.City}; Land: {customer.Country}");
+            }
+
+            Console.WriteLine("*************************************************************************************************************");
+            var germanCustomers = from cust in customers
+                                  where cust.Country == "Germany"
+                                  select cust;
+            foreach (var customer in germanCustomers)
+            {
+                Console.WriteLine($"Firma: {customer.CompanyName}; Stadt: {customer.City}; Land: {customer.Country}");
+            }
+
         }
 
     }
