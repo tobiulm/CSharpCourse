@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NorthwindDbLibrary", "North
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonalverwaltungWpfApp", "PersonalverwaltungWpfApp\PersonalverwaltungWpfApp.csproj", "{406AD390-377F-4B17-B3C8-16C396022333}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoLibraryTestProjekt", "DemoLibraryTestProjekt\DemoLibraryTestProjekt.csproj", "{237A52EF-D0B7-4B44-9B12-7EE923ECC9DC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{406AD390-377F-4B17-B3C8-16C396022333}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{406AD390-377F-4B17-B3C8-16C396022333}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{406AD390-377F-4B17-B3C8-16C396022333}.Release|Any CPU.Build.0 = Release|Any CPU
+		{237A52EF-D0B7-4B44-9B12-7EE923ECC9DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{237A52EF-D0B7-4B44-9B12-7EE923ECC9DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{237A52EF-D0B7-4B44-9B12-7EE923ECC9DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{237A52EF-D0B7-4B44-9B12-7EE923ECC9DC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

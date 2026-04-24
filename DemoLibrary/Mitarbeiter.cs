@@ -106,9 +106,16 @@ namespace NewElements.DemoLibrary
             }
             set
             {
-                if(value != _geburtsDatum && (DateTime.Now.Year - value.Year >= 16))
+                if(value != _geburtsDatum )
                 {
-                    base.GeburtsDatum = value;
+                    if ((DateTime.Now.Year - value.Year >= 16))
+                    {
+                        base.GeburtsDatum = value;
+                    }
+                    else
+                    {
+                        throw new MitarbeiterZuJungException();
+                    }
                 }
             }
         }
