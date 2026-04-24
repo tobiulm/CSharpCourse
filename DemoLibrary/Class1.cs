@@ -1,4 +1,9 @@
 ﻿using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
+using NorthwindDbLibrary.Models;
+using System.Diagnostics.Metrics;
+using System.Net;
+using System.Numerics;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
@@ -628,7 +633,7 @@ namespace NewElements.DemoLibrary
             Console.WriteLine("##########################################################################################################################");
 
 
-            foreach ( var ma in frauen)
+            foreach (var ma in frauen)
             {
                 Console.WriteLine(ma.StellDichVor());
             }
@@ -636,7 +641,7 @@ namespace NewElements.DemoLibrary
             Console.WriteLine("##########################################################################################################################");
             Console.WriteLine("###                                                Männer                                                              ###");
             Console.WriteLine("##########################################################################################################################");
-            foreach(var ma in männer)
+            foreach (var ma in männer)
             {
                 Console.WriteLine(ma.StellDichVor());
             }
@@ -692,64 +697,84 @@ namespace NewElements.DemoLibrary
         /// </summary>
         public static void DatenbankDemo()
         {
-            SqlConnection connection = new SqlConnection("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Northwind;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False");
+            //SqlConnection connection = new SqlConnection("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Northwind;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False");
 
-            SqlCommand cmd = new SqlCommand("SELECT * FROM Customers WHERE Country = 'Germany'", connection);
+            //SqlCommand cmd = new SqlCommand("SELECT * FROM Customers WHERE Country = 'Germany'", connection);
 
-            SqlDataReader reader = null;
+            //SqlDataReader reader = null;
 
-            try
-            {
-                connection.Open();
-                reader = cmd.ExecuteReader();
-                if(reader.HasRows)
-                {
-                    while(reader.Read())
-                    {
-                        Console.WriteLine($"Firma: {reader["CompanyName"].ToString()} Stadt: {reader["City"].ToString()}");
-                    }
-                }
-            }
-            catch(Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-            finally
-            {
-                if(reader != null && !reader.IsClosed)
-                {
-                    reader.Close();
-                }
-                if(connection != null && connection.State != System.Data.ConnectionState.Closed)
-                {
-                    connection.Close();
-                    connection.Dispose();
-                }
+            //try
+            //{
+            //    connection.Open();
+            //    reader = cmd.ExecuteReader();
+            //    if(reader.HasRows)
+            //    {
+            //        while(reader.Read())
+            //        {
+            //            Console.WriteLine($"Firma: {reader["CompanyName"].ToString()} Stadt: {reader["City"].ToString()}");
+            //        }
+            //    }
+            //}
+            //catch(Exception ex)
+            //{
+            //    Console.WriteLine(ex.Message);
+            //}
+            //finally
+            //{
+            //    if(reader != null && !reader.IsClosed)
+            //    {
+            //        reader.Close();
+            //    }
+            //    if(connection != null && connection.State != System.Data.ConnectionState.Closed)
+            //    {
+            //        connection.Close();
+            //        connection.Dispose();
+            //    }
 
-            }
+            //}
 
-            // Objekt Relational Mapping
-            Console.WriteLine("*************************************************************************************************************");
+            //// Objekt Relational Mapping
+            //Console.WriteLine("*************************************************************************************************************");
 
-            Customer cust1 = new Customer("ALFKI");
-            Console.WriteLine($"Firma: {cust1.CompanyName}; Stadt: {cust1.City}; Land: {cust1.Country}");
+            //Customer cust1 = new Customer("ALFKI");
+            //Console.WriteLine($"Firma: {cust1.CompanyName}; Stadt: {cust1.City}; Land: {cust1.Country}");
 
 
-            Console.WriteLine("*************************************************************************************************************");
-            var customers = Customer.LoadAllCustomers();
-            foreach (var customer in customers)
-            {
-                Console.WriteLine($"Firma: {customer.CompanyName}; Stadt: {customer.City}; Land: {customer.Country}");
-            }
+            //Console.WriteLine("*************************************************************************************************************");
+            //var customers = Customer.LoadAllCustomers();
+            //foreach (var customer in customers)
+            //{
+            //    Console.WriteLine($"Firma: {customer.CompanyName}; Stadt: {customer.City}; Land: {customer.Country}");
+            //}
 
-            Console.WriteLine("*************************************************************************************************************");
-            var germanCustomers = from cust in customers
+            //Console.WriteLine("*************************************************************************************************************");
+            //var germanCustomers = from cust in customers
+            //                      where cust.Country == "Germany"
+            //                      select cust;
+            //foreach (var customer in germanCustomers)
+            //{
+            //    Console.WriteLine($"Firma: {customer.CompanyName}; Stadt: {customer.City}; Land: {customer.Country}");
+            //}
+
+            // Datenbank mit Entity Framework Core (ORM)
+            DbContextOptionsBuilder<NorthwindContext> optionsBuilder = new DbContextOptionsBuilder<NorthwindContext>();
+            optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Northwind;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False");
+
+            NorthwindContext db = new NorthwindContext(optionsBuilder.Options);
+
+            var germanCustomers = from cust in db.Customers
                                   where cust.Country == "Germany"
                                   select cust;
-            foreach (var customer in germanCustomers)
+
+                    //            SELECT[c].[CustomerID], [c].[Address], [c].[City], [c].[CompanyName], [c].[ContactName], [c].[ContactTitle], [c].[Country], [c].[Fax], [c].[Phone], [c].[PostalCode], [c].[Region]
+                    //FROM[Customers] AS[c]
+                    //WHERE[c].[Country] = N'Germany'
+
+            foreach (var cust in germanCustomers)
             {
-                Console.WriteLine($"Firma: {customer.CompanyName}; Stadt: {customer.City}; Land: {customer.Country}");
+                Console.WriteLine($"Firma : {cust.CompanyName}\tStadt : {cust.City}");
             }
+
 
         }
 
