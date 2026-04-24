@@ -105,7 +105,10 @@ namespace NewElements.CSharpConsoleApp
             //Class1.TypenErmittlung();
 
             // Linq
-            Class1.LinqDemo();
+            //Class1.LinqDemo();
+
+            // Datenbankprogrammierung
+            Class1.DatenbankDemo();
         }
     }
 }

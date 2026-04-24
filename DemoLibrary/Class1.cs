@@ -1,4 +1,5 @@
-﻿using System.Text.Json;
+﻿using Microsoft.Data.SqlClient;
+using System.Text.Json;
 using System.Text.Json.Serialization;
 
 namespace NewElements.DemoLibrary
@@ -640,13 +641,13 @@ namespace NewElements.DemoLibrary
                 Console.WriteLine(ma.StellDichVor());
             }
 
-            SpeichereJsonDokument(angestellte); // generiere ein Json Text Dokument
+            //SpeichereJsonDokument(angestellte); // generiere ein Json Text Dokument
 
             // Laden eines Json Dokumentes in einen String
             string json = LadeJsonDokument();
             JsonDocument doc = JsonDocument.Parse(json);
             var personalNummern = from pnr in doc.RootElement.EnumerateArray()
-                                  where Enum.Parse<Abteilungen>(pnr!.GetProperty("Abteilung").ToString()) == Abteilungen.Produktion
+                                  where Enum.Parse<Abteilungen>(pnr!.GetProperty("Abteilung").ToString()) == Abteilungen.Management
                                   select pnr;
 
             foreach (var pnr in personalNummern)
@@ -684,6 +685,48 @@ namespace NewElements.DemoLibrary
                 json = r.ReadToEnd();
             }
             return json;
+        }
+
+        /// <summary>
+        /// Beispiele für die Programmierung mit Datenbanken aus C# heraus
+        /// </summary>
+        public static void DatenbankDemo()
+        {
+            SqlConnection connection = new SqlConnection("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Northwind;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False");
+
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Customers WHERE Country = 'Germany'", connection);
+
+            SqlDataReader reader = null;
+
+            try
+            {
+                connection.Open();
+                reader = cmd.ExecuteReader();
+                if(reader.HasRows)
+                {
+                    while(reader.Read())
+                    {
+                        Console.WriteLine($"Firma: {reader["CompanyName"].ToString()} Stadt: {reader["City"].ToString()}");
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                if(reader != null && !reader.IsClosed)
+                {
+                    reader.Close();
+                }
+                if(connection != null && connection.State != System.Data.ConnectionState.Closed)
+                {
+                    connection.Close();
+                    connection.Dispose();
+                }
+
+            }
         }
 
     }
